@@ -4,10 +4,11 @@
     <p>おはようございます</p>
     <p>こんにちは</p>
     <p>おやすみなさい</p>
-    <a href="#googtrans(ja|zh-CN)" @click="changeLang" data-lang="zh-CN" title="Chinese (Simplified)" class="gflag nturl" style="background-position:-300px -0px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32" alt="Chinese (Simplified)" /></a>
-    <a href="#googtrans(ja|en)" @click="changeLang" data-lang="en" title="English" class="gflag nturl" style="background-position:-0px -0px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32" alt="English" /></a>
-    <a href="#googtrans(ja|ja)" @click="changeLang" data-lang="ja" title="Japanese" class="gflag nturl" style="background-position:-700px -100px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32" alt="Japanese" /></a>
-    <a href="#googtrans(ja|ko)" @click="changeLang" data-lang="ko" title="Korean" class="gflag nturl" style="background-position:-0px -200px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32" alt="Korean" /></a>
+    <a href="#" @click="doGTranslate" data-lang="/ja/ja" title="Japanese" class="gflag nturl" style="background-position:-700px -100px;"><img src="https://gtranslate.net/flags/blank.png" height="32" width="32" alt="Japanese" /></a>
+    <a href="#" @click="doGTranslate" data-lang="/ja/zh-CN" title="Chinese (Simplified)" class="gflag nturl" style="background-position:-300px -0px;"><img src="https://gtranslate.net/flags/blank.png" height="32" width="32" alt="Chinese (Simplified)" /></a>
+    <a href="#" @click="doGTranslate" data-lang="/ja/en" title="English" class="gflag nturl" style="background-position:-0px -0px;"><img src="https://gtranslate.net/flags/blank.png" height="32" width="32" alt="English" /></a>
+    <a href="#" @click="doGTranslate" data-lang="/ja/ko" title="Korean" class="gflag nturl" style="background-position:-0px -200px;"><img src="https://gtranslate.net/flags/blank.png" height="32" width="32" alt="Korean" /></a>
+
 
     <div id="google_translate_element"></div>
   </div>
@@ -16,11 +17,12 @@
 <script>
 export default {
   methods: {
-    changeLang(e){
-      var lang = e.currentTarget.getAttribute('data-lang');
-      window.location = e.currentTarget.getAttribute('href');
-      location.reload();
-    }
+    doGTranslate(e) {
+      e.preventDefault()
+      const lang = e.currentTarget.getAttribute('data-lang')
+      this.$cookies.set('googtrans', lang)
+      location.reload()
+    },
   },
 }
 </script>
