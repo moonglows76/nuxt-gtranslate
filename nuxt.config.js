@@ -16,13 +16,6 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
-    script: [
-      {
-        innerHTML: `function googleTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'ja',includedLanguages: 'ja,ko,en,zh-CN',autoDisplay: false}, 'google_translate_element');}`
-      },
-      { src: `https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit` },
-    ],
-    __dangerouslyDisableSanitizers: ['script'],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
